@@ -16,8 +16,24 @@ function GetJson({ jsonData, setJsonData }) {
   };
 
   return (
-    <div>
-      {!jsonData && <input type="file" accept=".json" onChange={handleFileSelect} />}
+    <div className="selecione">
+      <div className="home">
+        <div>
+          <h1>Boletim Semanal</h1>
+          <h3>Gerador de gráficos</h3>
+        </div>
+        <img src="/grafico128.png" alt="logo" />
+      </div>
+      <label htmlFor="fileInput" className="button">
+        Selecionar Arquivo
+        <input
+          type="file"
+          accept=".json"
+          id="fileInput"
+          style={{ display: "none" }}
+          onChange={handleFileSelect}
+        />
+      </label>
     </div>
   );
 }

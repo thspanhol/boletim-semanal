@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GetJson from "./GetJason";
 import Graphic from "./graphic";
+import "./App.css";
 
 function App() {
   const [jsonData, setJsonData] = useState(null);
@@ -34,20 +35,27 @@ function App() {
 
   return (
     <>
-      <GetJson jsonData={jsonData} setJsonData={setJsonData} />
+      {!jsonData && <GetJson jsonData={jsonData} setJsonData={setJsonData} />}
+      {jsonData && (
+        <h1 className="head">
+          Gráficos de Incidentes - {jsonData[0]["Responsável pelo Ajuste"]}
+        </h1>
+      )}
       {jsonData && (
         <Graphic
+          titulo="Produto/Sistema Afetado"
           grData={productCount(jsonData, "Produto/Sistema").map((e) => [
             ...e,
-            "darkblue",
+            "#4774cc",
           ])}
         />
       )}
       {jsonData && (
         <Graphic
+          titulo="Status"
           grData={productCount(jsonData, "Status").map((e) => [
             ...e,
-            "darkred",
+            "#f87c2b",
           ])}
         />
       )}

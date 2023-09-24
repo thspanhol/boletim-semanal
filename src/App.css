@@ -1,42 +1,88 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Exo 2", sans-serif;
+}
+.selecione {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffefe;
+  flex-direction: column;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  gap: 5px 20px;
+  margin-top: -100px;
+  margin-bottom: 30px;
+}
+.home div {
+  display: flex;
+  flex-direction: column;
+}
+.home img {
+  margin-bottom: 10px;
+}
+
+.button {
+  margin: 10px;
+  padding: 15px 30px;
   text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #323c32;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #69bd4e;
+  background-image: linear-gradient(
+    45deg,
+    #41ab48 0%,
+    #69bd4e 51%,
+    #41ab48 100%
+  );
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.button:hover {
+  background-position: right center;
+  color: #fffefe;
+  text-decoration: none;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button:active {
+  transform: scale(0.95);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.head {
+  display: flex;
+  justify-content: center;
+  background-color: #fffefe;
+  margin-bottom: 3vh;
 }
 
-.card {
-  padding: 2em;
+.grafico {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffefe;
 }
 
-.read-the-docs {
-  color: #888;
+.grafico h2 {
+  margin-top: 3vh;
+  margin-bottom: -4vh;
+  z-index: 1;
 }
