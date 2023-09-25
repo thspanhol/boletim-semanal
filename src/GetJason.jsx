@@ -22,7 +22,7 @@ function GetJson({ jsonData, setJsonData }) {
           <h1>Boletim Semanal</h1>
           <h3>Gerador de gráficos</h3>
         </div>
-        <img src="/grafico128.png" alt="logo" />
+        <img src="./assets/grafico128.png" alt="logo" />
       </div>
       <label htmlFor="fileInput" className="button">
         Selecionar Arquivo
