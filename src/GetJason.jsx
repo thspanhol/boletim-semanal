@@ -1,18 +1,19 @@
+import * as XLSX from 'xlsx';
+
 function GetJson({ jsonData, setJsonData }) {
-  const handleFileSelect = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try {
-          const parsedJson = JSON.parse(e.target.result);
-          setJsonData(parsedJson);
-        } catch (error) {
-          console.error("Erro ao analisar o JSON:", error);
-        }
-      };
-      reader.readAsText(file);
-    }
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const data = e.target.result;
+      const workbook = XLSX.read(data, { type: 'binary' });
+      const sheetName = workbook.SheetNames[0];
+      const jsonResult = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+      setJsonData(jsonResult);
+    };
+
+    reader.readAsBinaryString(file);
   };
 
   return (
@@ -28,7 +29,7 @@ function GetJson({ jsonData, setJsonData }) {
         Selecionar Arquivo
         <input
           type="file"
-          accept=".json"
+          accept=".xls, .xlsx"
           id="fileInput"
           style={{ display: "none" }}
           onChange={handleFileSelect}
