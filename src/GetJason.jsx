@@ -1,6 +1,6 @@
 import * as XLSX from 'xlsx';
 
-function GetJson({ jsonData, setJsonData }) {
+function GetJson({ setJsonData }) {
   const handleFileSelect = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
