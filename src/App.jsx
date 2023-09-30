@@ -26,7 +26,7 @@ function App() {
     // Converte o objeto de ocorrências em um array de arrays
     const resultado = Object.entries(ocorrencias).map(
       ([produtoSistema, quantidade]) => {
-        return [produtoSistema, quantidade];
+        return [`${quantidade} - ${produtoSistema}`, quantidade];
       }
     );
 
